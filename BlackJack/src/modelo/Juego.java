@@ -44,8 +44,9 @@ public class Juego {
 			
 			if(eleccion == 1) {
 				jugador.addCarta(baraja.dameCarta());
+				System.out.println(String.valueOf(jugador.getBarajaJugador()) + jugador.getPuntuacion()) ;
 			}
-			System.out.println(String.valueOf(jugador.getBarajaJugador()) + jugador.getPuntuacion()) ;
+			
 		}
 		
 	}

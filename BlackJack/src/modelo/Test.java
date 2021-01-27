@@ -11,9 +11,11 @@ public class Test {
 		Jugador j1 = new Jugador("Hoyos");
 		Jugador j2 = new Jugador("Martín");
 		Juego juego1 = new Juego(b, j1,j2);
+		PockerCard p = new PockerCard(Forma.A, Palo.CORAZONES);
 		
 		
-		System.out.println(b);
+		
+
 		juego1.start();
 		
 

@@ -23,7 +23,7 @@ public class Jugador {
 	public int getPuntuacion() {
 	
 		
-		puntuacion += barajaJugador.get(contador ++).getValor();
+		
 		
 
 			
@@ -33,10 +33,12 @@ public class Jugador {
 		
 	
 	}
+
 	
 	public void addCarta(PockerCard c) {
 		
 		barajaJugador.add(c);
+		puntuacion += barajaJugador.get(contador ++).getValor();
 		
 	}
 	

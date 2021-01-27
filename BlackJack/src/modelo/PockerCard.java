@@ -6,7 +6,6 @@ public class PockerCard extends Carta {
 
 	private Palo palo;
 	private String forma;
-	private int valor;
 	
 	private final String ANSI_RESET = "\u001B[0m";
 
@@ -21,7 +20,7 @@ public class PockerCard extends Carta {
 
 	
 	public int getValor() {
-		return this.valor;
+		return valor;
 	}
 	
 	
