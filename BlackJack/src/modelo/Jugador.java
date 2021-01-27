@@ -9,9 +9,11 @@ public class Jugador {
 	private String nombre;
 	private int puntuacion;
 	private List<PockerCard> barajaJugador = new ArrayList<>();
+	private int contador;
 	
 	public Jugador(String nombre) {
 		this.nombre = nombre;
+		puntuacion = 0;
 	}
 
 	public String getNombre() {
@@ -19,17 +21,10 @@ public class Jugador {
 	}
 
 	public int getPuntuacion() {
-		puntuacion = 0; 
-		int i = 0;
+	
 		
-		if(barajaJugador.isEmpty() == true) {
-			return puntuacion;
-		} else {
-			while(barajaJugador.isEmpty() == false) {
-				puntuacion += barajaJugador.get(i).getValor();
-				i ++;
-			}
-		}
+		puntuacion += barajaJugador.get(contador ++).getValor();
+		
 
 			
 			

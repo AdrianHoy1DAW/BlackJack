@@ -13,7 +13,7 @@ public class Test {
 		Juego juego1 = new Juego(b, j1,j2);
 		
 		
-		System.out.println(b.dameCarta());
+		System.out.println(b);
 		juego1.start();
 		
 
