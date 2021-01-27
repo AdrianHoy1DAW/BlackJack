@@ -11,8 +11,11 @@ import modelo.PockerCard.Palo;
 public class Baraja {
 
 	List<PockerCard> baraja = new ArrayList<PockerCard>();
+	private int arriba;
+	
 
 	public Baraja() {
+		arriba = 0;
 		
 		for(Palo p : Palo.values()) {
 			for(Forma f : Forma.values()) {
@@ -30,9 +33,9 @@ public class Baraja {
 		
 	}
 	
-	public Carta dameCarta() {
+	public PockerCard dameCarta() {
 		
-		return baraja.get(1);
+		return baraja.get(arriba ++);
 		
 	}
 	
