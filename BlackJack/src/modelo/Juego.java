@@ -35,6 +35,7 @@ public class Juego {
 			System.out.println(jugador);
 			System.out.println("La siguiente carta era un: " + baraja.siguienteCarta() + "\n");
 			do {
+				System.out.println("Quiero una carta");
 				pc.addCarta(baraja.dameCarta());
 				System.out.println(pc);
 				
