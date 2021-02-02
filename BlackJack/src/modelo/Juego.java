@@ -1,53 +1,74 @@
 package modelo;
 
-import java.util.Scanner;
 
-import modelo.PockerCard.Forma;
-import modelo.PockerCard.Palo;
+
 
 public class Juego {
 
 	
-	private Baraja baraja;
-	private Jugador jugador1;
-	private Jugador jugador2;
-	
 
-	
-	
-	public Juego(Baraja baraja, Jugador jugador1, Jugador jugador2) {
+		Baraja baraja;
+		Jugador jugador;
+		Jugador pc;
 		
-		this.baraja = baraja;
-		this.jugador1 = jugador1;
-		this.jugador2 = jugador2;
-		
-	
-		
-	}
-
-
-	public void start() {
-		
-		juega(jugador1);
-		juega(jugador2);
-		
-	}
-	
-	public void juega(Jugador jugador) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Bienvendio " + jugador.getNombre());
-		int eleccion = 0;
-		
-		while(eleccion != 2) {
-			System.out.println("Quiere 1.Coger otra carta o 2.Plantarte");
-			eleccion = sc.nextInt();
+		public Juego(Jugador j1) {
+			jugador=j1;
+			baraja=new Baraja();
+			pc = new Jugador("PC");
 			
-			if(eleccion == 1) {
-				jugador.addCarta(baraja.dameCarta());
-				System.out.println(String.valueOf(jugador.getBarajaJugador()) + jugador.getPuntuacion()) ;
-			}
+			inicializar();
+		}
+		
+		public void inicializar() {
+			baraja.barajar();
+			
+		}
+		public void start() {
+			
+			char opcion;
+			
+			do {
+				System.out.println(jugador);
+				opcion=Entrada.obtenerConfirmacion("Quieres carta?");
+				if(opcion=='S') {
+					jugador.addCarta(baraja.dameCarta());				
+				}
+				
+			}while(jugador.getPuntuacion()<=21 && opcion!='N');
+			
+			do {
+				pc.addCarta(baraja.dameCarta());
+				System.out.println(pc);
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}while(jugador.getPuntuacion()<=21 && (pc.getPuntuacion()<jugador.getPuntuacion() && pc.getPuntuacion()<=21));
+			
+			if(jugador.getPuntuacion()>21)
+				perdido();
+			else if(pc.getPuntuacion()>21)
+				ganado();
+			else if(jugador.getPuntuacion()>pc.getPuntuacion())
+				ganado();
+			else 
+				perdido();
+			
+		}
+
+		private void ganado() {
+			System.out.println("Has gando !!!");
+			
+		}
+
+		private void perdido() {
+			System.out.println("Has perdido !!!");
 			
 		}
 		
 	}
-}
+

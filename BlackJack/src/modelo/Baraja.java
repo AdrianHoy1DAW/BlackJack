@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 import modelo.PockerCard.Forma;
@@ -10,12 +12,13 @@ import modelo.PockerCard.Palo;
 
 public class Baraja {
 
-	List<PockerCard> baraja = new ArrayList<PockerCard>();
-	private int arriba;
+	List<PockerCard> barajar = new ArrayList<PockerCard>();
+	Deque<PockerCard> baraja; 
+
 	
 
 	public Baraja() {
-		arriba = 0;
+		
 		
 		for(Palo p : Palo.values()) {
 			for(Forma f : Forma.values()) {
@@ -24,18 +27,21 @@ public class Baraja {
 		}
 		
 		barajar();
+		baraja = new LinkedList<>(barajar);
 		
 	}
 	
 	public void barajar() {
 		
-		Collections.shuffle(baraja);
+		Collections.shuffle(barajar);
 		
 	}
 	
 	public PockerCard dameCarta() {
 		
-		return baraja.get(arriba ++);
+		
+		
+		return baraja.poll();
 		
 	}
 	
