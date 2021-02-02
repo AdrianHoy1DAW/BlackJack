@@ -12,7 +12,7 @@ import modelo.PockerCard.Palo;
 
 public class Baraja {
 
-	List<PockerCard> barajar = new ArrayList<PockerCard>();
+	List<PockerCard> sinBarajar = new ArrayList<PockerCard>();
 	Deque<PockerCard> baraja; 
 
 	
@@ -22,18 +22,18 @@ public class Baraja {
 		
 		for(Palo p : Palo.values()) {
 			for(Forma f : Forma.values()) {
-				baraja.add(new PockerCard(f,p));
+				sinBarajar.add(new PockerCard(f,p));
 			}
 		}
 		
 		barajar();
-		baraja = new LinkedList<>(barajar);
+		baraja = new LinkedList<>(sinBarajar);
 		
 	}
 	
 	public void barajar() {
 		
-		Collections.shuffle(barajar);
+		Collections.shuffle(sinBarajar);
 		
 	}
 	
@@ -42,6 +42,12 @@ public class Baraja {
 		
 		
 		return baraja.poll();
+		
+	}
+	
+	public PockerCard siguienteCarta() {
+		
+		return baraja.peek();
 		
 	}
 	

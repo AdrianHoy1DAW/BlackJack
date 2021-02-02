@@ -16,13 +16,9 @@ public class Juego {
 			baraja=new Baraja();
 			pc = new Jugador("PC");
 			
-			inicializar();
 		}
 		
-		public void inicializar() {
-			baraja.barajar();
-			
-		}
+
 		public void start() {
 			
 			char opcion;
@@ -31,11 +27,13 @@ public class Juego {
 				System.out.println(jugador);
 				opcion=Entrada.obtenerConfirmacion("Quieres carta?");
 				if(opcion=='S') {
+					System.out.println();
 					jugador.addCarta(baraja.dameCarta());				
 				}
 				
 			}while(jugador.getPuntuacion()<=21 && opcion!='N');
-			
+			System.out.println(jugador);
+			System.out.println("La siguiente carta era un: " + baraja.siguienteCarta() + "\n");
 			do {
 				pc.addCarta(baraja.dameCarta());
 				System.out.println(pc);

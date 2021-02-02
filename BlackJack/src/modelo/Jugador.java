@@ -22,16 +22,8 @@ public class Jugador {
 
 	public int getPuntuacion() {
 	
-		
-		
-		
-
-			
-			
 		return puntuacion;
 		
-		
-	
 	}
 
 	
@@ -52,7 +44,7 @@ public class Jugador {
 		
 		return "Nombre: " + nombre + "\n" +
 				"Baraja: " + barajaJugador + "\n" +
-				"Puntuacion: " + puntuacion;
+				"Puntuacion: " + puntuacion + "\n";
 		
 	}
 	
