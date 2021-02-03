@@ -32,4 +32,15 @@ public class Entrada {
 		return texto.charAt(0);
 	}
 	
+	public static String pedirString(String msg) {
+		String pedido;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println(msg);
+		pedido = sc.nextLine();
+		
+		return pedido;
+		
+	}
+	
 }
